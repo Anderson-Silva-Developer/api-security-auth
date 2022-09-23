@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.3'
+	id 'org.springframework.boot' version '2.5.7'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'war'
@@ -17,8 +17,20 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.security.oauth:spring-security-oauth2:2.3.7.RELEASE'
+	implementation 'javax.xml.bind:jaxb-api:2.2.11'
+	implementation 'com.sun.xml.bind:jaxb-impl:2.2.11'
+	implementation 'com.sun.xml.bind:jaxb-core:2.3.0.1'
+	implementation 'com.sun.activation:javax.activation:1.2.0'
+
+
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+configurations {
+	all*.exclude module : 'spring-boot-starter-logging'
+}
+
+
